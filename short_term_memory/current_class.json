@@ -1,14 +1,14 @@
 {
-    "tag": "marvel-character",
+    "tag": "open-google",
     "patterns": [
-        "Who is Iron Man?",
-        "Tell me about Captain America.",
-        "What are the powers of Thor?"
+        "Open Google",
+        "Go to Google",
+        "Launch Google"
     ],
     "responses": [
-        "Iron Man is a superhero appearing in Marvel Comics, created by writer Stan Lee, artist Don Heck, and others.",
-        "Captain America, aka Steve Rogers, is a fictional superhero appearing in American comic books published by Marvel Comics.",
-        "Thor is a fictional superhero appearing in American comic books published by Marvel Comics."
+        "Opening Google...",
+        "Navigating to Google.",
+        "Google is now open."
     ],
-    "context": "marvel"
+    "context": "command"
 }

@@ -1,14 +1,39 @@
 import os
+
 from Utilities.functions import *
+from Utilities.record import *
+from Utilities.transcribe import *
+
 import time
 
-User = input("You: ")
-os.system(f"./AI/classifier.out '{User}'")
-with open("short_term_memory/current_class.json", "r") as f:
-    intent_class = json.load(f)
 
-time.sleep(1)
+def classify(text):
+    os.system(f"./AI/classifier.out '{text}'")
+    with open("short_term_memory/current_class.json", "r") as f:
+        intent_class = json.load(f)
+    time.sleep(1)
+    os.system(f"./AI/choose_response.out '{text}'")
+    DoFunction(intent_class)
 
-os.system(f"./AI/choose_response.out '{User}'")
+def audio_command():
+    Input = Audio()
+    AI = speech()
 
-DoFunction(intent_class)
+    while True:
+        try:
+            Input.VoiceCommand()
+            text = AI.transcribe()
+            classify(text)
+        except:
+            pass
+
+def text_command():
+    text = input("You: ")
+    classify(text)
+
+if __name__ == "__main__":
+    mode = input("Mode: ")
+    if mode.lower() == "audio":
+        audio_command()
+    else:
+        text_command()

@@ -11,9 +11,9 @@ using namespace boost::property_tree;
 
 // Function to calculate similarity between two strings
 double similarity(const string& input, const string& pattern) {
-    // Remove punctuation symbols from both strings
-    string inputProcessed = regex_replace(input, regex("[[:punct:]]"), "");
-    string patternProcessed = regex_replace(pattern, regex("[[:punct:]]"), "");
+    // Remove punctuation symbols (including full stops) from both strings
+    string inputProcessed = regex_replace(input, regex("[[:punct:].]"), "");
+    string patternProcessed = regex_replace(pattern, regex("[[:punct:].]"), "");
 
     // Convert both processed strings to lowercase for case-insensitive comparison
     string inputLower = inputProcessed;
