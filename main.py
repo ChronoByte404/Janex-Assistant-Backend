@@ -1,10 +1,12 @@
-import os
 
+# Built-in Python libraries
+import os
+import time
+
+# Internal directory libraries
 from Utilities.functions import *
 from Utilities.record import *
 from Utilities.transcribe import *
-
-import time
 
 
 def classify(text):
