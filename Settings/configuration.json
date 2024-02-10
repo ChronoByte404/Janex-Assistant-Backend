@@ -1,0 +1,19 @@
+{
+  "response-type": "fixed",
+  "url": "http://localhost:8000",
+  "port": 8000,
+  "vo-port": 2002,
+  "default_timer": 10,
+  "wake_time": "08:00",
+  "UIName": "Jarvis",
+  "Command_Prefix": "/",
+  "Authorised_Servers": [
+    "A.R.U. Computing",
+    "The Workshop \u2699"
+  ],
+  "Authorised_Users": [
+    "cipher58"
+  ],
+  "colour": "YELLOW",
+  "disallowed-words": []
+}

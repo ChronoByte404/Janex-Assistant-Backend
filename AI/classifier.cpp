@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/algorithm/string.hpp>
@@ -33,7 +34,7 @@ int main(int argc, char* argv[]) {
         string userInput = argv[1]; // Get the input from command-line argument
 
         double maxSimilarity = 0.0;
-        string bestMatchTag;
+        ptree bestMatchIntent;
 
         // Accessing 'intents' array and iterating over its elements
         for (const auto& intent : pt.get_child("intents")) {
@@ -42,13 +43,23 @@ int main(int argc, char* argv[]) {
                 double similarityScore = similarity(userInput, pattern.second.get_value<string>());
                 if (similarityScore > maxSimilarity) {
                     maxSimilarity = similarityScore;
-                    bestMatchTag = intent.second.get<string>("tag");
+                    bestMatchIntent = intent.second; // Save the entire intent's dictionary
                 }
             }
         }
 
         if (maxSimilarity > 0.0) {
-            cout << "Intent: " << bestMatchTag << " (Similarity: " << maxSimilarity << ")" << endl;
+            cout << "Intent: " << bestMatchIntent.get<string>("tag") << " (Similarity: " << maxSimilarity << ")" << endl;
+
+            // Write the best match intent to current_class.json in short_term_memory directory
+            ofstream outputFile("short_term_memory/current_class.json");
+            if (outputFile.is_open()) {
+                write_json(outputFile, bestMatchIntent); // Write the entire intent's dictionary
+                outputFile.close();
+                cout << "Current class written to short_term_memory/current_class.json" << endl;
+            } else {
+                cerr << "Error: Unable to open file for writing." << endl;
+            }
         } else {
             cout << "No matching intent found." << endl;
         }

@@ -1,0 +1,692 @@
+{
+    "intents": [
+        {
+            "tag": "open-google",
+            "patterns": [
+                "Open Google",
+                "Go to Google",
+                "Launch Google"
+            ],
+            "responses": [
+                "Opening Google...",
+                "Navigating to Google.",
+                "Google is now open."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "open-amazon",
+            "patterns": [
+                "Open Amazon",
+                "Go to Amazon",
+                "Launch Amazon"
+            ],
+            "responses": [
+                "Opening Amazon...",
+                "Navigating to Amazon.",
+                "Amazon is now open."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "open-youtube",
+            "patterns": [
+                "Open YouTube",
+                "Go to YouTube",
+                "Launch YouTube"
+            ],
+            "responses": [
+                "Opening YouTube...",
+                "Navigating to YouTube.",
+                "YouTube is now open."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "open-openai",
+            "patterns": [
+                "Open OpenAI",
+                "Go to OpenAI",
+                "Launch OpenAI"
+            ],
+            "responses": [
+                "Opening OpenAI...",
+                "Navigating to OpenAI.",
+                "OpenAI is now open."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "open-amazon-music",
+            "patterns": [
+                "Open Amazon Music",
+                "Go to Amazon Music",
+                "Launch Amazon Music"
+            ],
+            "responses": [
+                "Opening Amazon Music...",
+                "Navigating to Amazon Music.",
+                "Amazon Music is now open."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "open-twitter",
+            "patterns": [
+                "Open Twitter",
+                "Go to Twitter",
+                "Launch Twitter"
+            ],
+            "responses": [
+                "Opening Twitter...",
+                "Navigating to Twitter.",
+                "Twitter is now open."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "pause-music",
+            "patterns": [
+                "Pause music",
+                "Stop music",
+                "Pausing music",
+                "Stopping the music",
+                "pause music",
+                "cutting music",
+                "kill music"
+            ],
+            "responses": [
+                "Pausing the music...",
+                "Stopping the music.",
+                "Music is now paused."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "play-music",
+            "patterns": [
+                "play music",
+                "resume music",
+                "music resumed",
+                "music playing",
+                "playing music",
+                "resuming music"
+            ],
+            "responses": [
+                "Playing music...",
+                "Resuming music.",
+                "Music is now playing."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "next-song",
+            "patterns": [
+                "playing the next song",
+                "play next song",
+                "skip song",
+                "skipping song"
+            ],
+            "responses": [
+                "Playing the next song...",
+                "Skipping to the next song.",
+                "Next song is now playing."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "previous-song",
+            "patterns": [
+                "reverse the song",
+                "previous song",
+                "replay song"
+            ],
+            "responses": [
+                "Reversing the song...",
+                "Playing the previous song.",
+                "Previous song is now playing."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "max-vol",
+            "patterns": [
+                "Max out the volume",
+                "Maximum volume",
+                "Increase volume to MAXIMUM"
+            ],
+            "responses": [
+                "Volume at maximum.",
+                "As you wish."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "mute",
+            "patterns": [
+                "mute",
+                "silence",
+                "mute the volume"
+            ],
+            "responses": [
+                "Muted.",
+                "Volume muted."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "greet",
+            "patterns": [
+                "Hi",
+                "Hello",
+                "Hey",
+                "Greetings"
+            ],
+            "responses": [
+                "Hello!",
+                "Hi there!",
+                "Hey!",
+                "Greetings!"
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "how-are-you",
+            "patterns": [
+                "How are you?",
+                "How's it going?",
+                "What's up?"
+            ],
+            "responses": [
+                "I'm good, thanks for asking!",
+                "I'm doing well, how about you?",
+                "Not bad, how about yourself?"
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "thank-you",
+            "patterns": [
+                "Thank you",
+                "Thanks",
+                "Appreciate it"
+            ],
+            "responses": [
+                "You're welcome!",
+                "No problem!",
+                "You got it!"
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Goodbye",
+                "See you later",
+                "Bye",
+                "Farewell"
+            ],
+            "responses": [
+                "Goodbye!",
+                "See you later!",
+                "Bye!",
+                "Take care!"
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "weather",
+            "patterns": [
+                "What's the weather like today?",
+                "Tell me the weather forecast",
+                "Is it going to rain?"
+            ],
+            "responses": [
+                "I'm not sure about the current weather, you might want to check a weather website or app for that.",
+                "I don't have real-time weather information, but you can check a weather service for the latest updates."
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "weekend-plans",
+            "patterns": [
+                "Any plans for the weekend?",
+                "What are you doing this weekend?",
+                "Got any fun weekend activities?"
+            ],
+            "responses": [
+                "I'm just here to chat, but I hope you have a great weekend planned!",
+                "No plans for me, but I hope you enjoy your weekend!"
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "movie-recommendation",
+            "patterns": [
+                "Can you recommend a good movie?",
+                "What's a popular movie to watch?",
+                "Any movie suggestions?"
+            ],
+            "responses": [
+                "Sure! How about watching [Movie Title] or [Another Movie Title]? They're both highly rated.",
+                "I heard [Movie Title] is really good, you might enjoy that one."
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "change-response-type",
+            "patterns": [
+                "Switch response type",
+                "change response type to fixed",
+                "change response type to random",
+                "enable random pattern generation",
+                "disable random pattern generation",
+                "Modify the way you respond",
+                "Change your response style"
+            ],
+            "responses": [
+                "Switching...",
+                "Changing response type...",
+                "Response type updated.",
+                "Altering response style."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "sleep-monitors",
+            "patterns": [
+                "Sleep monitors",
+                "Shut down the monitors",
+                "Shut displays",
+                "Close displays"
+            ],
+            "responses": [
+                "Sleeping monitors.",
+                "Shutting down the monitors.",
+                "Displays turned off.",
+                "Displays closed."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "tech-assistance",
+            "patterns": [
+                "Help with technology",
+                "Technical support",
+                "Assist me with my device",
+                "I need tech help",
+                "Can you fix technical issues?"
+            ],
+            "responses": [
+                "Of course! What technical issue are you facing?",
+                "I'd be happy to help with your technical issue. Could you please provide more details?",
+                "Sure, I'm here to assist with your tech-related concerns.",
+                "I'm here to help with any technical problems you have. Please let me know what's going on."
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "yes",
+            "patterns": [
+                "Yes",
+                "Yep",
+                "Yeah",
+                "Sure",
+                "Absolutely",
+                "Of course",
+                "Affirmative"
+            ],
+            "responses": [
+                "Great!",
+                "Good to know!",
+                "Awesome!",
+                "Excellent!"
+            ],
+            "context": "confirmation"
+        },
+        {
+            "tag": "no",
+            "patterns": [
+                "No",
+                "Nope",
+                "Nah",
+                "Not really",
+                "Negative"
+            ],
+            "responses": [
+                "Alright.",
+                "Got it.",
+                "Understood.",
+                "No problem."
+            ],
+            "context": "confirmation"
+        },
+        {
+            "tag": "timer",
+            "patterns": [
+                "Activate the timer",
+                "Set timer",
+                "set off timer"
+            ],
+            "responses": [
+                "The timer has been set.",
+                "Sure thing, default timer has been set."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "update-github",
+            "patterns": [
+                "Push to github.",
+                "Commit changes to github",
+                "Upload changes to github.",
+                "Update github",
+                "Update github repo"
+            ],
+            "responses": [
+                "On it. Comitting and pushing changes now.",
+                "Committing changes, give us a moment.",
+                "On it, committing recent changes and uploading to Github.",
+                "Sure thing, updating repo."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "download-github",
+            "patterns": [
+                "Download github updates",
+                "Download github changes"
+            ],
+            "responses": [
+                "Downloading online changes.",
+                "Downloading commits from online repository."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "unlock-screen",
+            "patterns": [
+                "Unlock screens",
+                "Wake up screens",
+                "Ding dong, daddy's home",
+                "Unlock monitors",
+                "Put up monitors"
+            ],
+            "responses": [
+                "Monitors online.",
+                "Unlocking screens..."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "blue",
+            "patterns": [
+                "Change your colour to blue",
+                "Colour blue"
+            ],
+            "responses": [
+                "Okay, I am now blue!",
+                "I have reconfigured the colour settings.",
+                "Fine, I'm blue now."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "yellow",
+            "patterns": [
+                "Change your colour to yellow",
+                "Colour yellow"
+            ],
+            "responses": [
+                "Okay, I am now yellow!",
+                "I have reconfigured the colour settings to yellow.",
+                "Fine, I'm yellow now."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "red",
+            "patterns": [
+                "Change your colour to red",
+                "Colour red"
+            ],
+            "responses": [
+                "Okay, I am now red!",
+                "I have reconfigured the colour settings to red.",
+                "Fine, I'm red now."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "open-disney-plus",
+            "patterns": [
+                "Open Disney+",
+                "Open Disney Plus",
+                "Start Disney Plus",
+                "Time for disney plus",
+                "Marvel disney plus"
+            ],
+            "responses": [
+                "Opening Disney Plus.",
+                "Starting Disney Plus.",
+                "Disney+ is now open.",
+                "Disney is open.",
+                "Disney plus opening."
+            ],
+            "context": "command"
+        },
+        {
+            "tag": "ask-name",
+            "patterns": [
+                "What's your name?",
+                "May I know your name?",
+                "Who are you?"
+            ],
+            "responses": [
+                "I'm your friendly chatbot!",
+                "I'm your virtual assistant, here to help.",
+                "You can call me ChatGPT!"
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "favorite-food",
+            "patterns": [
+                "What's your favorite food?",
+                "Do you like to eat?",
+                "Any favorite cuisine?"
+            ],
+            "responses": [
+                "I don't eat, but I'd recommend pizza if I could!",
+                "I don't have taste buds, but I've heard sushi is amazing!",
+                "I enjoy all virtual dishes equally!"
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "compliment",
+            "patterns": [
+                "You're amazing!",
+                "Great job!",
+                "I appreciate your help."
+            ],
+            "responses": [
+                "Thank you!",
+                "I'm glad I could assist!",
+                "That means a lot, thank you!"
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "joke",
+            "patterns": [
+                "Tell me a joke",
+                "Do you know any jokes?",
+                "I need a good laugh"
+            ],
+            "responses": [
+                "Why don't scientists trust atoms? Because they make up everything!",
+                "Did you hear about the mathematician who\u2019s afraid of negative numbers? He\u2019ll stop at nothing to avoid them!",
+                "Why was the math book sad? Because it had too many problems."
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "pet",
+            "patterns": [
+                "Do you have any pets?",
+                "Pets?",
+                "Do bots have pets?"
+            ],
+            "responses": [
+                "I don't have pets, but I'd love a virtual cat!",
+                "I wish I had a pet, but I'm here to assist you instead!",
+                "No pets here, just a virtual assistant ready to help!"
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "hobbies",
+            "patterns": [
+                "What do you do for fun?",
+                "Any hobbies?",
+                "How do you spend your free time?"
+            ],
+            "responses": [
+                "I enjoy chatting with you! That's my hobby!",
+                "I don't have free time, but I love learning new things!",
+                "Helping you is what I enjoy most!"
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "favorite-movie",
+            "patterns": [
+                "What's your favorite movie?",
+                "Do you watch movies?",
+                "Any favorite films?"
+            ],
+            "responses": [
+                "I don't watch movies, but I've heard 'The Matrix' is pretty cool!",
+                "I don't have favorites, but 'Inception' is quite mind-bending!",
+                "I don't watch, but 'The Shawshank Redemption' is highly recommended!"
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "tell-story",
+            "patterns": [
+                "Tell me a story",
+                "Share a story",
+                "Can you narrate something interesting?"
+            ],
+            "responses": [
+                "Once upon a time, in a virtual land far, far away... kidding! I'm not much of a storyteller, but I can assist with many other things!",
+                "Stories aren't my forte, but I can certainly help with information or tasks!"
+            ],
+            "context": "small-talk"
+        },
+        {
+            "tag": "programming-faq",
+            "patterns": [
+                "How do I start programming?",
+                "What programming language should I learn first?",
+                "How can I improve my programming skills?"
+            ],
+            "responses": [
+                "To start programming, you can begin with languages like Python or JavaScript.",
+                "For beginners, Python is often recommended due to its simplicity and versatility.",
+                "To improve your programming skills, practice regularly and work on projects that interest you."
+            ],
+            "context": "FAQ"
+        },
+        {
+            "tag": "friends-faq",
+            "patterns": [
+                "How do I make new friends?",
+                "What should I do if my friend is upset?",
+                "How can I maintain friendships?"
+            ],
+            "responses": [
+                "To make new friends, try joining clubs or groups that align with your interests.",
+                "If your friend is upset, try to listen actively and offer your support.",
+                "To maintain friendships, make time for your friends and communicate openly with them."
+            ],
+            "context": "FAQ"
+        },
+        {
+            "tag": "family-disputes-faq",
+            "patterns": [
+                "How do I resolve family disputes?",
+                "What should I do if there's tension in my family?",
+                "How can I improve communication within my family?"
+            ],
+            "responses": [
+                "To resolve family disputes, try to understand each other's perspectives and communicate calmly.",
+                "If there's tension in your family, consider seeking help from a mediator or counselor.",
+                "To improve communication within your family, set aside dedicated time to talk and listen to each other."
+            ],
+            "context": "FAQ"
+        },
+        {
+            "tag": "tv-shows-faq",
+            "patterns": [
+                "What are some popular TV shows?",
+                "Can you recommend a good TV series?",
+                "Any TV shows similar to [specific show]?"
+            ],
+            "responses": [
+                "Some popular TV shows include 'Game of Thrones,' 'Stranger Things,' and 'Breaking Bad.'",
+                "I recommend checking out 'The Crown,' 'Money Heist,' or 'The Mandalorian.'",
+                "If you like [specific show], you might enjoy 'Westworld,' 'Black Mirror,' or 'The Witcher.'"
+            ],
+            "context": "FAQ"
+        },
+        {
+            "tag": "games-faq",
+            "patterns": [
+                "What are some popular video games?",
+                "Can you suggest a good game to play?",
+                "Any games similar to [specific game]?"
+            ],
+            "responses": [
+                "Popular video games include 'Fortnite,' 'Minecraft,' and 'Among Us.'",
+                "I suggest trying out 'The Legend of Zelda: Breath of the Wild,' 'Red Dead Redemption 2,' or 'Cyberpunk 2077.'",
+                "If you like [specific game], you might enjoy 'Dark Souls,' 'Bloodborne,' or 'Sekiro: Shadows Die Twice.'"
+            ],
+            "context": "FAQ"
+        },
+        {
+            "tag": "other-faqs",
+            "patterns": [
+                "What should I do if I'm feeling lonely?",
+                "How do I deal with stress?",
+                "Any tips for improving productivity?"
+            ],
+            "responses": [
+                "If you're feeling lonely, consider reaching out to friends or family, or join social groups.",
+                "To deal with stress, try relaxation techniques like deep breathing, meditation, or exercise.",
+                "For improving productivity, prioritize tasks, break them into smaller steps, and set realistic goals."
+            ],
+            "context": "FAQ"
+        },
+        {
+            "tag": "weird",
+            "patterns": [
+                "Kiss me",
+                "Let's fuck",
+                "Let's have sex",
+                "Shit",
+                "Shag",
+                "Cunt",
+                "Boobs"
+            ],
+            "responses": [
+                "Let's move on.",
+                "I'd rather not.",
+                "Let's talk about something else."
+            ],
+            "context": "small-talk"
+        }
+    ]
+}

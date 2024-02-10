@@ -1,0 +1,14 @@
+{
+    "tag": "open-amazon",
+    "patterns": [
+        "Open Amazon",
+        "Go to Amazon",
+        "Launch Amazon"
+    ],
+    "responses": [
+        "Opening Amazon...",
+        "Navigating to Amazon.",
+        "Amazon is now open."
+    ],
+    "context": "command"
+}
