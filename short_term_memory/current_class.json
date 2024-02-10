@@ -1,16 +1,14 @@
 {
-    "tag": "greet",
+    "tag": "marvel-character",
     "patterns": [
-        "Hi",
-        "Hello",
-        "Hey",
-        "Greetings"
+        "Who is Iron Man?",
+        "Tell me about Captain America.",
+        "What are the powers of Thor?"
     ],
     "responses": [
-        "Hello!",
-        "Hi there!",
-        "Hey!",
-        "Greetings!"
+        "Iron Man is a superhero appearing in Marvel Comics, created by writer Stan Lee, artist Don Heck, and others.",
+        "Captain America, aka Steve Rogers, is a fictional superhero appearing in American comic books published by Marvel Comics.",
+        "Thor is a fictional superhero appearing in American comic books published by Marvel Comics."
     ],
-    "context": "small-talk"
+    "context": "marvel"
 }

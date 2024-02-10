@@ -4,10 +4,10 @@
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/algorithm/string.hpp>
 #include <regex> // Include regex library for pattern matching
+#include <random> // Include random library for random selection
 
 using namespace std;
 using namespace boost::property_tree;
-
 
 // Function to calculate similarity between two strings
 double similarity(const string& input, const string& pattern) {
@@ -31,45 +31,41 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    ptree pt;
-
     try {
         // Load the JSON file into the property tree
-        read_json("long_term_memory/intents.json", pt);
+        ptree pt;
+        read_json("short_term_memory/current_class.json", pt);
 
         string userInput = argv[1]; // Get the input from command-line argument
 
         double maxSimilarity = 0.0;
-        ptree bestMatchIntent;
+        string bestMatchResponse;
+        vector<string> matchingResponses;
 
-        // Accessing 'intents' array and iterating over its elements
-        for (const auto& intent : pt.get_child("intents")) {
-            // Accessing 'patterns' array within each intent
-            for (const auto& pattern : intent.second.get_child("patterns")) {
-                double similarityScore = similarity(userInput, pattern.second.get_value<string>());
-                if (similarityScore > maxSimilarity) {
-                    maxSimilarity = similarityScore;
-                    bestMatchIntent = intent.second; // Save the entire intent's dictionary
-                }
+        // Accessing 'responses' array and iterating over its elements
+        for (const auto& response : pt.get_child("responses")) {
+            double similarityScore = similarity(userInput, response.second.get_value<string>());
+            if (similarityScore > maxSimilarity) {
+                maxSimilarity = similarityScore;
+                bestMatchResponse = response.second.get_value<string>();
+            } else if (similarityScore == maxSimilarity) {
+                matchingResponses.push_back(response.second.get_value<string>());
             }
         }
 
         if (maxSimilarity > 0.0) {
-            cout << "Intent: " << bestMatchIntent.get<string>("tag") << " (Similarity: " << maxSimilarity << ")" << endl;
+            cout << "Best Match Response: " << bestMatchResponse << " (Similarity: " << maxSimilarity << ")" << endl;
         } else {
-            cout << "No matching intent found." << endl;
-            // Construct a ptree with "tag" set to "none"
-            bestMatchIntent.put("tag", "none");
-        }
-
-        // Write the best match intent or "None" to current_class.json in short_term_memory directory
-        ofstream outputFile("short_term_memory/current_class.json");
-        if (outputFile.is_open()) {
-            write_json(outputFile, bestMatchIntent); // Write the entire intent's dictionary or "None"
-            outputFile.close();
-            cout << "Current class written to short_term_memory/current_class.json" << endl;
-        } else {
-            cerr << "Error: Unable to open file for writing." << endl;
+            if (!matchingResponses.empty()) {
+                // If there are multiple matching responses, choose one randomly
+                random_device rd;
+                mt19937 gen(rd());
+                uniform_int_distribution<> dis(0, matchingResponses.size() - 1);
+                int randomIndex = dis(gen);
+                cout << "Random Response: " << matchingResponses[randomIndex] << endl;
+            } else {
+                cout << "No matching response found." << endl;
+            }
         }
 
     } catch (const std::exception& ex) {
