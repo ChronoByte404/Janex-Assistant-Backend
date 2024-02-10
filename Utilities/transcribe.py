@@ -7,7 +7,7 @@ class speech:
 
     def transcribe(self):
         result = self.model.transcribe(f"{self.filename}")
-        sentence = result["text"]
+        sentence = result["text"].strip()  # Trim leading and trailing spaces
 
         print(sentence)
 
