@@ -14,6 +14,9 @@ def classify(text):
     time.sleep(1)
     os.system(f"./AI/choose_response.out '{text}'")
     DoFunction(intent_class)
+    with open("./short_term_memory/output.txt", "r") as f:
+        output = f.read()
+        os.system(f"./Utilities/tts '{output}'")
 
 def audio_command():
     Input = Audio()

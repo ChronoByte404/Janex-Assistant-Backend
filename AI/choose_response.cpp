@@ -1,5 +1,5 @@
 #include <iostream>
-#include <fstream>
+#include <fstream> // Include fstream library for file operations
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/algorithm/string.hpp>
@@ -55,6 +55,15 @@ int main(int argc, char* argv[]) {
 
         if (maxSimilarity > 0.0) {
             cout << "Best Match Response: " << bestMatchResponse << " (Similarity: " << maxSimilarity << ")" << endl;
+
+            // Write the response to a file
+            ofstream outputFile("short_term_memory/output.txt");
+            if (outputFile.is_open()) {
+                outputFile << bestMatchResponse << endl;
+                outputFile.close();
+            } else {
+                cerr << "Error: Unable to open file for writing." << endl;
+            }
         } else {
             if (!matchingResponses.empty()) {
                 // If there are multiple matching responses, choose one randomly
@@ -63,8 +72,26 @@ int main(int argc, char* argv[]) {
                 uniform_int_distribution<> dis(0, matchingResponses.size() - 1);
                 int randomIndex = dis(gen);
                 cout << "Random Response: " << matchingResponses[randomIndex] << endl;
+
+                // Write the response to a file
+                ofstream outputFile("short_term_memory/output.txt");
+                if (outputFile.is_open()) {
+                    outputFile << matchingResponses[randomIndex] << endl;
+                    outputFile.close();
+                } else {
+                    cerr << "Error: Unable to open file for writing." << endl;
+                }
             } else {
                 cout << "No matching response found." << endl;
+
+                // Write a message to indicate no matching response to the file
+                ofstream outputFile("short_term_memory/output.txt");
+                if (outputFile.is_open()) {
+                    outputFile << "No matching response found." << endl;
+                    outputFile.close();
+                } else {
+                    cerr << "Error: Unable to open file for writing." << endl;
+                }
             }
         }
 

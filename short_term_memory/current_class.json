@@ -1,14 +1,14 @@
 {
-    "tag": "open-google",
+    "tag": "open-amazon",
     "patterns": [
-        "Open Google",
-        "Go to Google",
-        "Launch Google"
+        "Open Amazon",
+        "Go to Amazon",
+        "Launch Amazon"
     ],
     "responses": [
-        "Opening Google...",
-        "Navigating to Google.",
-        "Google is now open."
+        "Opening Amazon...",
+        "Navigating to Amazon.",
+        "Amazon is now open."
     ],
     "context": "command"
 }
