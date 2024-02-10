@@ -50,18 +50,20 @@ int main(int argc, char* argv[]) {
 
         if (maxSimilarity > 0.0) {
             cout << "Intent: " << bestMatchIntent.get<string>("tag") << " (Similarity: " << maxSimilarity << ")" << endl;
-
-            // Write the best match intent to current_class.json in short_term_memory directory
-            ofstream outputFile("short_term_memory/current_class.json");
-            if (outputFile.is_open()) {
-                write_json(outputFile, bestMatchIntent); // Write the entire intent's dictionary
-                outputFile.close();
-                cout << "Current class written to short_term_memory/current_class.json" << endl;
-            } else {
-                cerr << "Error: Unable to open file for writing." << endl;
-            }
         } else {
             cout << "No matching intent found." << endl;
+            // Construct a ptree with "tag" set to "none"
+            bestMatchIntent.put("tag", "none");
+        }
+
+        // Write the best match intent or "None" to current_class.json in short_term_memory directory
+        ofstream outputFile("short_term_memory/current_class.json");
+        if (outputFile.is_open()) {
+            write_json(outputFile, bestMatchIntent); // Write the entire intent's dictionary or "None"
+            outputFile.close();
+            cout << "Current class written to short_term_memory/current_class.json" << endl;
+        } else {
+            cerr << "Error: Unable to open file for writing." << endl;
         }
 
     } catch (const std::exception& ex) {

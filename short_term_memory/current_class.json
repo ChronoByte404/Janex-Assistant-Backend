@@ -1,14 +1,16 @@
 {
-    "tag": "open-amazon",
+    "tag": "greet",
     "patterns": [
-        "Open Amazon",
-        "Go to Amazon",
-        "Launch Amazon"
+        "Hi",
+        "Hello",
+        "Hey",
+        "Greetings"
     ],
     "responses": [
-        "Opening Amazon...",
-        "Navigating to Amazon.",
-        "Amazon is now open."
+        "Hello!",
+        "Hi there!",
+        "Hey!",
+        "Greetings!"
     ],
-    "context": "command"
+    "context": "small-talk"
 }
