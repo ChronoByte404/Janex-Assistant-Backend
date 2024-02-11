@@ -83,6 +83,8 @@ def check_os():
         print(f"Caution: Unknown Operating System detected: {sys.platform}")
         return "Unknown"
 
+OS = check_os()
+
 def DeployFunction(intent_class):
     play_sound_in_background("AudioFiles/speechunderstood.mp3")
     intent_class = intent_class.get("tag")
@@ -274,16 +276,8 @@ def maxvol():
 engine = pyttsx3.init()
 
 def speak(ResponseOutput):
-    set_face("talk_happy")
-#    if OS == "Linux":
-#        TTS.say(ResponseOutput)
-#        set_face("smile")
-#        return 0
-#    else:
     engine.say(ResponseOutput)
     engine.runAndWait()
-    time.sleep(1)
-    set_face("smile")
 
 def save_speak(ResponseOutput):
     engine.save_to_file(ResponseOutput, './AudioFiles/audio.mp3')

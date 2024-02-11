@@ -11,7 +11,7 @@ class Audio:
         self.channels = 1
         self.fs = 44100
         self.seconds = 2.8
-        self.filename = "short_term_memory/input_audio.wav"
+        self.filename = "short_term_memory/audio.wav"
         self.threshold = 5000
 
     def VoiceCommand(self):
