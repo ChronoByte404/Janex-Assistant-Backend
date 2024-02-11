@@ -4,7 +4,7 @@ from nextcord.ext import commands
 import asyncio
 import json
 import os
-from Utilities.functions import loadconfig
+from Utilities.functions import *
 
 class DiscordBot:
     def __init__(self):
@@ -77,6 +77,11 @@ class DiscordBot:
                     ResponseOutput = f.read()
                 
                 self.ResponseOutput = ResponseOutput
+
+                if message.author.name in self.authorised_users:
+                    with open("./short_term_memory/current_class.json", "r") as f:
+                        intent_class = json.load(f)
+                        DoFunction(intent_class)
 
                 await message.reply(ResponseOutput)
         

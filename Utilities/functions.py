@@ -274,8 +274,7 @@ def maxvol():
 engine = pyttsx3.init()
 
 def speak(ResponseOutput):
-    engine.say(ResponseOutput)
-    engine.runAndWait()
+    os.system(f'./Utilities/tts "{output}"')
 
 def save_speak(ResponseOutput):
     engine.save_to_file(ResponseOutput, './AudioFiles/audio.mp3')
