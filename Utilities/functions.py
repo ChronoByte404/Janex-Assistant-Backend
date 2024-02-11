@@ -218,12 +218,10 @@ def open_libreoffice():
     os.system("libreoffice")
 
 def upload_to_github():
-    os.system("git add *")
-    os.system('git commit -m "Automated upload from Jarvis."')
-    os.system("git push")
+    os.system("./upload")
 
 def download_from_github():
-    os.system("git pull")
+    os.system("./download")
 
 # Media functions
 
