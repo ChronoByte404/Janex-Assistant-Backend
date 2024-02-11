@@ -1,16 +1,14 @@
 {
-    "tag": "greet",
+    "tag": "thank-you",
     "patterns": [
-        "Hi",
-        "Hello",
-        "Hey",
-        "Greetings"
+        "Thank you",
+        "Thanks",
+        "Appreciate it"
     ],
     "responses": [
-        "Hello!",
-        "Hi there!",
-        "Hey!",
-        "Greetings!"
+        "You're welcome!",
+        "No problem!",
+        "You got it!"
     ],
     "context": "small-talk"
 }
