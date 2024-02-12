@@ -87,18 +87,18 @@ class DiscordBot:
 
                 await message.reply(ResponseOutput)
 
-                # Check if the bot is connected to a voice channel
                 if message.guild.voice_client is None:
-                    # Join the voice channel
-                    channel = nextcord.utils.get(message.guild.voice_channels, id=int('723270333523558455'))  # Change channel ID as per your requirement
-                    vc = await channel.connect()
-
-                    # Generate audio from ResponseOutput and save to file
+                    self.channel = nextcord.utils.get(message.guild.voice_channels, id=int('723270333523558455'))
+                    self.vc = await self.channel.connect()
+                
+                try:
                     save_speak(ResponseOutput)
-
-                    # Play the audio file in the voice channel
                     audio_source = FFmpegPCMAudio('./AudioFiles/output.mp3')
-                    vc.play(audio_source, after=lambda e: print('done', e))
+                    self.vc.play(audio_source, after=lambda e: print('done', e))
+                except Exception as e:
+                    print(f"Failed to join voice channel: {e}")
+
+            await asyncio.sleep(2)  # Example delay using asyncio.sleep()
         
         print(f"Logged in.")
         self.client.run(self.key)
