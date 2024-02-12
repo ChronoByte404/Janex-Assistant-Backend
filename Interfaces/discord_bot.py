@@ -1,4 +1,5 @@
 import nextcord
+from nextcord import FFmpegPCMAudio
 from nextcord.ext import commands
 
 import asyncio
@@ -84,7 +85,19 @@ class DiscordBot:
                         DoFunction(intent_class)
 
                 await message.reply(ResponseOutput)
-        
-        print(f"Logged in as {self.client}")
-        self.client.run(self.key)
 
+                # Check if the bot is connected to a voice channel
+                if message.guild.voice_client is None:
+                    # Join the voice channel
+                    channel = nextcord.utils.get(message.guild.voice_channels, id=int('723270333523558455'))  # Change channel ID as per your requirement
+                    vc = await channel.connect()
+
+                    # Generate audio from ResponseOutput and save to file
+                    tts_to_file(ResponseOutput)
+
+                    # Play the audio file in the voice channel
+                    audio_source = FFmpegPCMAudio('./AudioFiles/output.mp3')
+                    vc.play(audio_source, after=lambda e: print('done', e))
+        
+        print(f"Logged in as {self.client.user}.")
+        self.client.run(self.key)
