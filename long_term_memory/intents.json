@@ -93,7 +93,9 @@
                 "Stopping the music",
                 "pause music",
                 "cutting music",
-                "kill music"
+                "kill music",
+                "pause media",
+                "stop the media"
             ],
             "responses": [
                 "Pausing the music...",
@@ -110,7 +112,9 @@
                 "music resumed",
                 "music playing",
                 "playing music",
-                "resuming music"
+                "resuming music",
+                "play media",
+                "start the media"
             ],
             "responses": [
                 "Playing music...",
