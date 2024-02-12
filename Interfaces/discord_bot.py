@@ -73,7 +73,9 @@ class DiscordBot:
 
                 sentence = str(sentence)
                 sentence = sentence.replace("'", "")
-                os.system(f"./Utilities/send_request http://localhost:{self.port} '{sentence}'")
+                os.system(f'./Utilities/send_request http://localhost:{self.port} "{sentence}"')
+
+                time.sleep(1)
 
                 with open("./short_term_memory/output.txt", "r") as f:
                     ResponseOutput = f.read()
@@ -92,7 +94,7 @@ class DiscordBot:
                     self.vc = await self.channel.connect()
                 
                 try:
-                    save_speak(ResponseOutput)
+                    mp3_tts(ResponseOutput)
                     audio_source = FFmpegPCMAudio('./AudioFiles/output.mp3')
                     self.vc.play(audio_source, after=lambda e: print('done', e))
                 except Exception as e:
