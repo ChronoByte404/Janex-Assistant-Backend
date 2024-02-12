@@ -5,6 +5,7 @@ from nextcord.ext import commands
 import asyncio
 import json
 import os
+
 from Utilities.functions import *
 
 class DiscordBot:
@@ -93,11 +94,11 @@ class DiscordBot:
                     vc = await channel.connect()
 
                     # Generate audio from ResponseOutput and save to file
-                    tts_to_file(ResponseOutput)
+                    save_speak(ResponseOutput)
 
                     # Play the audio file in the voice channel
                     audio_source = FFmpegPCMAudio('./AudioFiles/output.mp3')
                     vc.play(audio_source, after=lambda e: print('done', e))
         
-        print(f"Logged in as {self.client.user}.")
+        print(f"Logged in.")
         self.client.run(self.key)
