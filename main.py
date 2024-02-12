@@ -26,7 +26,7 @@ def classify(sentence):
         intent_class = json.load(f)
 
     DoFunction(intent_class)
-    os.system(f'./Utilities/tts "{output}"')
+    tts(output)
 
 def audio_command():
     Input = Audio()

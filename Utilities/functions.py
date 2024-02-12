@@ -3,7 +3,6 @@ import os
 import sys
 import webbrowser
 from playsound import playsound
-import pyttsx3
 import threading
 from datetime import datetime
 import time
@@ -271,14 +270,11 @@ def maxvol():
         print("Running on macOS")
         os.system("osascript -e 'set Volume 10'")
 
-engine = pyttsx3.init()
-
 def speak(ResponseOutput):
-    os.system(f'./Utilities/tts "{output}"')
+    os.system(f'./Utilities/tts "{ResponseOutput}"')
 
 def save_speak(ResponseOutput):
-    engine.save_to_file(ResponseOutput, './AudioFiles/audio.mp3')
-    engine.runAndWait()
+    os.system(f'./Utilities/tts_to_file "{ResponseOutput}"')
 
 def tts(ResponseOutput):
     threading.Thread(target=speak, args=(ResponseOutput,)).start()
