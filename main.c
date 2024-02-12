@@ -1,13 +1,14 @@
-#include <iostream>
-#include <cstdlib>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int main(int argc, char *argv[]) {
     if (argc > 2) {
-        std::cerr << "Usage: " << argv[0] << " [argument]" << std::endl;
+        fprintf(stderr, "Usage: %s [argument]\n", argv[0]);
         return 1;
     }
 
-    std::string argument;
+    char *argument;
     if (argc == 2) {
         // If an argument is provided, use it
         argument = argv[1];
@@ -17,14 +18,15 @@ int main(int argc, char *argv[]) {
     }
 
     // Construct the command to run the Python script
-    std::string command = "python3 main.py " + argument;
+    char command[100]; // Assuming a maximum command length of 100 characters
+    sprintf(command, "python3 main.py %s", argument);
 
     // Execute the command
-    int result = std::system(command.c_str());
+    int result = system(command);
 
     // Check if the command executed successfully
     if (result != 0) {
-        std::cerr << "Error executing Python script" << std::endl;
+        fprintf(stderr, "Error executing Python script\n");
         return 1;
     }
 
