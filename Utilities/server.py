@@ -2,6 +2,9 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from io import BytesIO
 import json
 import os
+from AI.main import *
+
+jarvis = JarvisAI()
 
 class RequestHandler(BaseHTTPRequestHandler):
     def do_POST(self):
@@ -11,14 +14,15 @@ class RequestHandler(BaseHTTPRequestHandler):
         post_data = json.loads(post_data)
         message_text = post_data['message']
         sentence = str(message_text)
-        os.system(f"./AI/classifier.out '{sentence}'")
-        os.system(f"./AI/choose_response.out '{sentence}'")
 
-        with open("short_term_memory/current_class.json", "r") as file:
-            intent_class = json.load(file)
+        ResponseOutput = jarvis.say(sentence)
+        intent_class = jarvis.get_class()
+
+        with open("short_term_memory/output.txt", "w") as outfile:
+            outfile.write(ResponseOutput)
         
-        with open("short_term_memory/output.txt", "r") as output:
-            ResponseOutput = output.read()
+        with open("short_term_memory/current_class.json", "w") as outjson:
+            json.dump(intent_class, outjson, indent=4)
         
         response_data = {
             'response': ResponseOutput,

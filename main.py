@@ -93,4 +93,8 @@ if __name__ == "__main__":
     elif mode.lower() == "discord":
         discord_server()
     else:
-        text_command()
+        while True:
+            try:
+                text_command()
+            except Exception as e:
+                print(e)
