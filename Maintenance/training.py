@@ -73,7 +73,7 @@ for (pattern_sentence, tag) in xy:
 X_train = np.array(X_train)
 y_train = np.array(y_train)
 
-num_epochs = countno * 100
+num_epochs = (countno * 100) / 2
 batch_size = 64
 learning_rate = 0.002
 input_size = len(X_train[0])

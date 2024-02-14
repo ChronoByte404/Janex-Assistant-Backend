@@ -226,19 +226,19 @@ def download_from_github():
 
 def play_pause_music():
     if OS == "Linux":
-        os.system("playerctl play-pause")
+        os.system("./Scripts/play-command")
     else:
         print("Operating system is not supported!")
 
 def next_music():
     if OS == "Linux":
-        os.system("playerctl next")
+        os.system("./Scripts/next-command")
     else:
         print("Operating system is not supported!")
 
 def previous_music():
     if OS == "Linux":
-        os.system("playerctl previous")
+        os.system("./Scripts/previous-command")
     else:
         print("Operating system is not supported!")
 
