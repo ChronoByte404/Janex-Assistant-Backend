@@ -6,6 +6,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from JanexUltimate.janexpython import *
+import math
 
 map_location = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -74,6 +75,11 @@ X_train = np.array(X_train)
 y_train = np.array(y_train)
 
 num_epochs = (countno * 100) / 2
+
+if isinstance(num_epochs, float):
+    num_epochs = int(math.ceil(num_epochs / 100.0)) * 100
+    print(f"Rounded to {num_epochs}.")
+
 batch_size = 64
 learning_rate = 0.002
 input_size = len(X_train[0])

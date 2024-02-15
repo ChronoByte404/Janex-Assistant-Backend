@@ -281,3 +281,21 @@ def tts(ResponseOutput):
 
 def mp3_tts(ResponseOutput):
     threading.Thread(target=save_speak, args=(ResponseOutput,)).start()
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python3 functions.py <intent_class_json>")
+        sys.exit(1)
+
+    intent_class_json = sys.argv[1]
+
+    try:
+        intent_class = json.loads(intent_class_json)
+    except json.JSONDecodeError as e:
+        print("Error decoding JSON:", e)
+        sys.exit(1)
+
+    DoFunction(intent_class)
+
+if __name__ == "__main__":
+    main()
