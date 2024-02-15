@@ -2,16 +2,20 @@ import json
 import os
 import sys
 import webbrowser
-from playsound import playsound
 import threading
 from datetime import datetime
 import time
 import psutil
 import signal
-from Interfaces.text_to_speech import *
 import sys
 
-Voice = TTS()
+def run_cprogram(path):
+    if "./" not in path:
+        path = f"./{path}"
+    os.system(f"{path}")
+
+def cprogram(path):
+    threading.Thread(target=run_cprogram, args=(path,)).start()
 
 def timed_shutdown():
     print("59 minute timed shutdown active.")
@@ -60,10 +64,11 @@ def saveconfig(file_path, dict):
         json.dump(dict, json_file, indent=4)
 
 def play_notification_sound(sound_file_path):
-    playsound(sound_file_path)
+    cprogram(f"./Scripts/audio_player {sound_file_path}")
+
 
 def play_sound_in_background(notification_sound_file):
-    threading.Thread(target=play_notification_sound, args=(notification_sound_file,)).start()
+    play_notification_sound(notification_sound_file)
 
 def DoFunction(intent_class):
     threading.Thread(target=DeployFunction, args=(intent_class,)).start()
@@ -226,13 +231,13 @@ def download_from_github():
 
 def play_pause_music():
     if OS == "Linux":
-        os.system("./Scripts/play-command")
+        cprogram("./Scripts/play-command")
     else:
         print("Operating system is not supported!")
 
 def next_music():
     if OS == "Linux":
-        os.system("./Scripts/next-command")
+        cprogram("./Scripts/next-command")
     else:
         print("Operating system is not supported!")
 
@@ -271,10 +276,10 @@ def maxvol():
         os.system("osascript -e 'set Volume 10'")
 
 def speak(ResponseOutput):
-    os.system(f'./Utilities/tts "{ResponseOutput}"')
+    cprogram(f'./Utilities/tts "{ResponseOutput}"')
 
 def save_speak(ResponseOutput):
-    os.system(f'./Utilities/tts_to_file "{ResponseOutput}"')
+    cprogram(f'./Utilities/tts_to_file "{ResponseOutput}"')
 
 def tts(ResponseOutput):
     threading.Thread(target=speak, args=(ResponseOutput,)).start()
