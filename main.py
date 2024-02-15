@@ -11,6 +11,9 @@ from Utilities.record import *
 from Utilities.transcribe import *
 from Utilities.server import *
 from Utilities.audio_server import *
+
+from Functionals.protocols import *
+
 from Interfaces.discord_bot import *
 
 configuration = loadconfig("./Settings/config.json")
@@ -78,6 +81,7 @@ def text_command():
     classify(text)
 
 if __name__ == "__main__":
+
     config = loadconfig("./Settings/config.json")
     port = config.get("default-port")
 
@@ -89,6 +93,7 @@ if __name__ == "__main__":
     if mode.lower() == "audio":
         audio_command()
     elif mode.lower() == "server":
+        run_protocols()
         both_servers()
     elif mode.lower() == "discord":
         discord_server()
