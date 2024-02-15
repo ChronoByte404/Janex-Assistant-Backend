@@ -2,6 +2,7 @@ import pyaudio
 import wave
 import numpy as np
 from scipy.io import wavfile
+import os
 
 class Audio:
     def __init__(self):
@@ -12,10 +13,11 @@ class Audio:
         self.fs = 44100
         self.seconds = 2.8
         self.filename = "short_term_memory/audio.wav"
-        self.threshold = 5000
+        self.threshold = 6000
 
     def VoiceCommand(self):
         p = pyaudio.PyAudio()
+        os.system("clear")
         print('Listening')
 
         stream = p.open(format=self.sample_format,
@@ -41,8 +43,11 @@ class Audio:
         print('Recording')
 
         for i in range(0, int(self.fs / self.chunk * self.seconds)):
+            print(i)
             data = stream.read(self.chunk)
             frames.append(data)
+        
+        print("Recording finished.")
 
         stream.stop_stream()
         stream.close()
