@@ -13,7 +13,7 @@ settings = loadconfig("./Settings/config.json")
 class JarvisAI:
     def __init__(self):
         self.classifier = JanexPT("long_term_memory/intents.json")
-        self.classifier.modify_data_path("long_term_memory/data.pth")
+        self.classifier.modify_data_path("long_term_memory/speech_data.pth")
         self.previous_input = None
         self.response_check()
         self.defaultnlgsize = "en_core_web_sm"

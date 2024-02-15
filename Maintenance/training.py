@@ -2,6 +2,7 @@ import numpy as np
 import random
 import json
 import os
+import sys
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
@@ -134,7 +135,11 @@ data = {
     "tags": tags
 }
 
-FILE = "long_term_memory/data.pth"
+if len(sys.argv) > 1:
+    FILE = f"long_term_memory/{sys.argv[1]}.pth"
+else:
+    FILE = "long_term_memory/data.pth"
+
 torch.save(data, FILE)
 
 print(f'Training complete. File saved to {FILE}')
