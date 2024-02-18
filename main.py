@@ -60,10 +60,10 @@ def audio_command():
             print(f"Error: {e}")
 
 def audio_server():
-    flaskapp.run(port=config.get("voip-port"))
+    flaskapp.run(host='0.0.0.0', port=config.get("voip-port"))
 
 def server():
-    server_address = ('', port)
+    server_address = ('0.0.0.0', port)
     httpd = HTTPServer(server_address, RequestHandler)
     print(f"{port}")
     httpd.serve_forever()
