@@ -1,0 +1,13 @@
+git+https://github.com/ChronoByte404/whisper.git
+JanexPT
+JanexBot
+JanexSC
+JanexNLG
+nextcord
+pyttsx3
+py3-tts
+playsound
+psutil
+colorama
+scipy
+numpy
