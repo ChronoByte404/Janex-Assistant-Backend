@@ -73,9 +73,9 @@ class DiscordBot:
 
                 sentence = str(sentence)
                 sentence = sentence.replace("'", "")
-                os.system(f'./Utilities/send_request http://localhost:{self.port} "{sentence}"')
+                cprogram(f'./Utilities/send_request http://localhost:{self.port} "{sentence}"')
 
-                time.sleep(1)
+                time.sleep(2)
 
                 with open("./short_term_memory/output.txt", "r") as f:
                     ResponseOutput = f.read()
