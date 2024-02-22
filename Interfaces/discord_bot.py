@@ -20,7 +20,11 @@ class DiscordBot:
         self.incoming_servers = servers.get("servers")
         self.port = config.get("default-port")
 
-        self.client = commands.Bot(command_prefix='/', intents=nextcord.Intents.default())
+        self.discordintents = nextcord.Intents.default()
+        self.discordintents.message_content = True
+        self.discordintents.reactions = True
+
+        self.client = commands.Bot(command_prefix='/', intents=self.discordintents)
     
     def activate_bot(self):
         @self.client.event
