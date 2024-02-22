@@ -1,13 +1,23 @@
 import json
 import os
 import sys
-import webbrowser
 import threading
 from datetime import datetime, timedelta
 import time
 import psutil
 import signal
 import sys
+
+class WebInterface:
+    def __init__(self):
+        self.jean = "NotX"
+    
+    def open(self, website):
+        if "http" not in website:
+            website = f"http://{website}"
+        run_cprogram(f'./Scripts/open_website {website}')
+
+webbrowser = WebInterface()
 
 def run_cprogram(path):
     if "./" not in path:
