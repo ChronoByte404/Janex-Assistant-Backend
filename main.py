@@ -11,6 +11,7 @@ from Utilities.record import *
 from Utilities.transcribe import *
 from Utilities.server import *
 from Utilities.audio_server import *
+from Utilities.alarm_server import *
 
 from Functionals.protocols import *
 
@@ -62,6 +63,10 @@ def audio_command():
 def audio_server():
     flaskapp.run(host='0.0.0.0', port=config.get("voip-port"))
 
+def alarm_server():
+    run_protocols()
+    start_server()
+
 def server():
     server_address = ('0.0.0.0', port)
     httpd = HTTPServer(server_address, RequestHandler)
@@ -71,6 +76,7 @@ def server():
 def both_servers():
     threading.Thread(target=audio_server, args=()).start()
     threading.Thread(target=server, args=()).start()
+    threading.Thread(target=alarm_server, args=()).start()
 
 def discord_server():
     Instance = DiscordBot()
