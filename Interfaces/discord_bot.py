@@ -60,6 +60,14 @@ class DiscordBot:
                         time.sleep(1)
                         await message.delete()
                         await response.delete()
+                    elif "aru" in message.content:
+                        guild = message.guild
+                        role = nextcord.utils.get(guild.roles, name="ARU")
+                        await user.add_roles(role)
+                        response = await message.reply("You now have the Anglia Ruskin University rank!")
+                        time.sleep(1)
+                        await message.delete()
+                        await response.delete()
             
             if self.UIName.lower() in message.content.lower() or message.guild is None or message.reference and message.reference.resolved.author == self.client.user:
                 await message.channel.trigger_typing()
