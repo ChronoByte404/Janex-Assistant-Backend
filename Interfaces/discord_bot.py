@@ -46,7 +46,7 @@ class DiscordBot:
                     user = message.author
                     if "creative" in message.content:
                         guild = message.guild  # Fix here
-                        role = discord.utils.get(guild.roles, name="Creative Minecraft")
+                        role = nextcord.utils.get(guild.roles, name="Creative Minecraft")
                         await user.add_roles(role)
                         response = await message.reply("You now have the Creative Minecraft rank! <:creative:1195315907191373905>")
                         time.sleep(1)
@@ -54,7 +54,7 @@ class DiscordBot:
                         await response.delete()
                     elif "survival" in message.content:
                         guild = message.guild  # Fix here
-                        role = discord.utils.get(guild.roles, name="Survival Minecraft")
+                        role = nextcord.utils.get(guild.roles, name="Survival Minecraft")
                         await user.add_roles(role)
                         response = await message.reply("You now have the Survival Minecraft rank! <:survival:1195315854171185152>")
                         time.sleep(1)
