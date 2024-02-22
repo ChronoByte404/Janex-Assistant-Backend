@@ -276,10 +276,10 @@ def maxvol():
         os.system("osascript -e 'set Volume 10'")
 
 def speak(ResponseOutput):
-    cprogram(f'./Utilities/tts "{ResponseOutput}"')
+    run_cprogram(f'./Utilities/tts "{ResponseOutput}"')
 
 def save_speak(ResponseOutput):
-    cprogram(f'./Utilities/tts_to_file "{ResponseOutput}"')
+    run_cprogram(f'./Utilities/tts_to_file "{ResponseOutput}"')
 
 def tts(ResponseOutput):
     threading.Thread(target=speak, args=(ResponseOutput,)).start()

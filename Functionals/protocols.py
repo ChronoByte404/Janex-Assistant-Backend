@@ -2,7 +2,11 @@ from Utilities.functions import *
 from Functionals.background_ai import *
 
 def play_alarm():
-    play_notification_sound("./AudioFiles/alarm_clock.mp3")
+    data = check_for_alarm()
+    if data.get("type") == "alarm":
+        play_notification_sound("./AudioFiles/alarm_clock.mp3")
+    elif data.get("type") == "reminder":
+        speak(f"Reminder. {data.get('tag')}")
 
 def check_for_alarm():
     alarms = loadconfig("./Settings/reminders.json")
@@ -27,9 +31,9 @@ def check_for_alarm():
     return None
 
 def perform_action(task):
-    task = task.get("tag")
+    tasktag = task.get("tag")
 
-    if task == "alarm":
+    if tasktag == "alarm":
         play_alarm()
     
 def background_run_protocols():
