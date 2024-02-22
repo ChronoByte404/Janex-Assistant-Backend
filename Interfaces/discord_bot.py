@@ -76,9 +76,12 @@ class DiscordBot:
 
                 await message.reply(ResponseOutput)
 
-                if message.guild.voice_client is None:
-                    self.channel = nextcord.utils.get(message.guild.voice_channels, id=int('723270333523558455'))
-                    self.vc = await self.channel.connect()
+                try:
+                    if message.guild.voice_client is None:
+                        self.channel = nextcord.utils.get(message.guild.voice_channels, id=int('723270333523558455'))
+                        self.vc = await self.channel.connect()
+                except Exception as error:
+                    print(f"{error}")
 
                 try:
                     mp3_tts(ResponseOutput)
