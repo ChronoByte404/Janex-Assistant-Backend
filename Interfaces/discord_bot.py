@@ -10,6 +10,7 @@ class DiscordBot:
         config = loadconfig("Settings/config.json")
         key = loadconfig("Settings/discord_key.json")
         servers = loadconfig("Settings/JURISDICTION.json")
+        self.roles_mapping = loadconfig("Settings/role_mappings.json")
 
         self.key = key.get("DiscordAPI")
         self.prefix = config.get("Command_Prefix")
@@ -41,7 +42,7 @@ class DiscordBot:
 
             if self.prefix in message.content:
                 user = message.author
-                roles_mapping = {"creative": "Creative Minecraft", "survival": "Survival Minecraft", "aru": "ARU"}
+                roles_mapping = self.role_mappings
                 for role_keyword, role_name in roles_mapping.items():
                     if role_keyword in message.content:
                         try:
