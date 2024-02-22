@@ -54,7 +54,7 @@ class DiscordBot:
                             await message.delete()
                             await response.delete()
                         except Exception as error:
-                            response = await message.reply(f"Error: {Exception}")
+                            response = await message.reply(f"Error: {error}")
                             time.sleep(4)
                             await message.delete()
                             await response.delete()
@@ -68,7 +68,7 @@ class DiscordBot:
                             await message.delete()
                             await response.delete()
                         except Exception as error:
-                            response = await message.reply(f"Error: {Exception}")
+                            response = await message.reply(f"Error: {error}")
                             time.sleep(4)
                             await message.delete()
                             await response.delete()
@@ -82,7 +82,7 @@ class DiscordBot:
                             await message.delete()
                             await response.delete()
                         except Exception as error:
-                            response = await message.reply(f"Error: {Exception}")
+                            response = await message.reply(f"Error: {error}")
                             time.sleep(4)
                             await message.delete()
                             await response.delete()
