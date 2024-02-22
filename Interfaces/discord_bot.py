@@ -25,7 +25,7 @@ class DiscordBot:
         self.discordintents.reactions = True
 
         self.client = commands.Bot(command_prefix='/', intents=self.discordintents)
-    
+
     def activate_bot(self):
         @self.client.event
         async def on_message(message):
@@ -38,7 +38,7 @@ class DiscordBot:
                         await asyncio.sleep(4)
                         await response.delete()
                         break
-            
+
             if self.prefix in message.content:
                 user = message.author
                 roles_mapping = {"creative": "Creative Minecraft", "survival": "Survival Minecraft", "aru": "ARU"}
@@ -55,7 +55,7 @@ class DiscordBot:
                         await message.delete()
                         await response.delete()
                         break
-            
+
             if self.UIName.lower() in message.content.lower() or message.guild is None or (message.reference and message.reference.resolved.author == self.client.user):
                 await message.channel.trigger_typing()
 
@@ -68,7 +68,7 @@ class DiscordBot:
 
                 with open("./short_term_memory/output.txt", "r") as f:
                     ResponseOutput = f.read()
-                
+
                 if message.author.name in self.authorised_users:
                     with open("./short_term_memory/current_class.json", "r") as f:
                         intent_class = json.load(f)
@@ -76,19 +76,18 @@ class DiscordBot:
 
                 await message.reply(ResponseOutput)
 
-                if not message.guild.voice_client:
-                    channel = nextcord.utils.get(message.guild.voice_channels, id=int('723270333523558455'))
-                    vc = await channel.connect()
-                
+                if message.guild.voice_client is None:
+                    self.channel = nextcord.utils.get(message.guild.voice_channels, id=int('723270333523558455'))
+                    self.vc = await self.channel.connect()
+
                 try:
                     mp3_tts(ResponseOutput)
                     audio_source = FFmpegPCMAudio('./AudioFiles/output.mp3')
-                    vc.play(audio_source, after=lambda e: print('done', e))
+                    self.vc.play(audio_source, after=lambda e: print('done', e))
                 except Exception as e:
                     print(f"Failed to join voice channel: {e}")
 
             await asyncio.sleep(2)
-        
+
         print(f"Logged in.")
         self.client.run(self.key)
-
