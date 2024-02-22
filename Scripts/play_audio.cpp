@@ -2,13 +2,22 @@
 #include <SFML/Audio.hpp>
 #include <SFML/System.hpp>
 #include <cstdlib> // For std::system
+#include <cstring> // For std::strerror
 
 // Function to convert MP3 to WAV using ffmpeg
 bool convertMP3toWAV(const std::string& mp3File, const std::string& wavFile) {
     std::string command = "ffmpeg -i \"" + mp3File + "\" \"" + wavFile + "\"";
-    // Redirect output to /dev/null or NUL
-    int result = std::system((command + " > /dev/null 2>&1").c_str());
-    return result == 0; // Check if conversion was successful
+
+    // Execute the ffmpeg command
+    int result = std::system(command.c_str());
+
+    // Check if the command executed successfully
+    if (result != 0) {
+        std::cerr << "ffmpeg command failed: " << std::strerror(errno) << std::endl;
+        return false;
+    }
+
+    return true;
 }
 
 int main(int argc, char* argv[]) {
@@ -30,7 +39,7 @@ int main(int argc, char* argv[]) {
     // Create a sound buffer and load the temporary WAV file
     sf::SoundBuffer buffer;
     if (!buffer.loadFromFile(wavFilePath)) {
-        std::cerr << "Failed to load audio file\n";
+        std::cerr << "Failed to load audio file: " << wavFilePath << std::endl;
         return 1;
     }
 
@@ -51,3 +60,4 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+
