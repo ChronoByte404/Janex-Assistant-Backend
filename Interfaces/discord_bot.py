@@ -11,6 +11,7 @@ class DiscordBot:
         key = loadconfig("Settings/discord_key.json")
         servers = loadconfig("Settings/JURISDICTION.json")
 
+        self.key = key
         self.prefix = config.get("Command_Prefix")
         self.UIName = config.get("UIName")
         self.disallowed_words = config.get("disallowed-words")
