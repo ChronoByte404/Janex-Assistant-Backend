@@ -45,29 +45,47 @@ class DiscordBot:
             if self.prefix in message.content:
                     user = message.author
                     if "creative" in message.content:
-                        guild = message.guild  # Fix here
-                        role = nextcord.utils.get(guild.roles, name="Creative Minecraft")
-                        await user.add_roles(role)
-                        response = await message.reply("You now have the Creative Minecraft rank! <:creative:1195315907191373905>")
-                        time.sleep(1)
-                        await message.delete()
-                        await response.delete()
+                        try:
+                            guild = message.guild  # Fix here
+                            role = nextcord.utils.get(guild.roles, name="Creative Minecraft")
+                            await user.add_roles(role)
+                            response = await message.reply("You now have the Creative Minecraft rank! <:creative:1195315907191373905>")
+                            time.sleep(1)
+                            await message.delete()
+                            await response.delete()
+                        except Exception as error:
+                            response = await message.reply(f"Error: {Exception}")
+                            time.sleep(4)
+                            await message.delete()
+                            await response.delete()
                     elif "survival" in message.content:
-                        guild = message.guild  # Fix here
-                        role = nextcord.utils.get(guild.roles, name="Survival Minecraft")
-                        await user.add_roles(role)
-                        response = await message.reply("You now have the Survival Minecraft rank! <:survival:1195315854171185152>")
-                        time.sleep(1)
-                        await message.delete()
-                        await response.delete()
+                        try:
+                            guild = message.guild  # Fix here
+                            role = nextcord.utils.get(guild.roles, name="Survival Minecraft")
+                            await user.add_roles(role)
+                            response = await message.reply("You now have the Survival Minecraft rank! <:survival:1195315854171185152>")
+                            time.sleep(1)
+                            await message.delete()
+                            await response.delete()
+                        except Exception as error:
+                            response = await message.reply(f"Error: {Exception}")
+                            time.sleep(4)
+                            await message.delete()
+                            await response.delete()
                     elif "aru" in message.content:
-                        guild = message.guild
-                        role = nextcord.utils.get(guild.roles, name="ARU")
-                        await user.add_roles(role)
-                        response = await message.reply("You now have the Anglia Ruskin University rank!")
-                        time.sleep(1)
-                        await message.delete()
-                        await response.delete()
+                        try:
+                            guild = message.guild
+                            role = nextcord.utils.get(guild.roles, name="ARU")
+                            await user.add_roles(role)
+                            response = await message.reply("You now have the Anglia Ruskin University rank!")
+                            time.sleep(1)
+                            await message.delete()
+                            await response.delete()
+                        except Exception as error:
+                            response = await message.reply(f"Error: {Exception}")
+                            time.sleep(4)
+                            await message.delete()
+                            await response.delete()
             
             if self.UIName.lower() in message.content.lower() or message.guild is None or message.reference and message.reference.resolved.author == self.client.user:
                 await message.channel.trigger_typing()
