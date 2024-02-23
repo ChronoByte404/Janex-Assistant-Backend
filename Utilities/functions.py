@@ -293,6 +293,10 @@ def speak(ResponseOutput):
     run_cprogram(f'./Utilities/tts "{ResponseOutput}"')
 
 def save_speak(ResponseOutput):
+    words = loadconfig("./Personality/pronounciation.json")
+    for word in words["words"]:
+        if word.get("word") in ResponseOutput:
+            ResponseOutput = ResponseOutput.replace(word.get("word"), word.get("pronounce"))
     run_cprogram(f'./Utilities/tts_to_file "{ResponseOutput}"')
 
 def tts(ResponseOutput):
