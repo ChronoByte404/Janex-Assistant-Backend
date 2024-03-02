@@ -27,6 +27,9 @@ def run_cprogram(path):
 def cprogram(path):
     threading.Thread(target=run_cprogram, args=(path,)).start()
 
+def sherlock(args):
+    run_cprogram(f'./Scripts/sherlock {args}')
+
 def timed_shutdown():
     print("59 minute timed shutdown active.")
     #time.sleep(3540)
