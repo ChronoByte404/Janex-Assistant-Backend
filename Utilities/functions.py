@@ -28,7 +28,7 @@ def cprogram(path):
     threading.Thread(target=run_cprogram, args=(path,)).start()
 
 def sherlock(args):
-    run_cprogram(f'./Scripts/sherlock {args}')
+    os.system(f'./Scripts/sherlock {args}')
 
 def timed_shutdown():
     print("59 minute timed shutdown active.")
@@ -165,6 +165,20 @@ def DeployFunction(intent_class):
         settings = loadconfig("./Settings/configuration.json")
         settings["colour"] = "RED"
         saveconfig("./Settings/configuration.json", settings)
+    
+    # Sherlock
+
+    elif intent_class == "sherlock":
+        with open("short_term_memory/user_input.txt", "r") as file:
+            usrinput = file.read()
+        currentclass = loadconfig("local_memory/current_class.json")
+        currentclass = currentclass.get("intent_class")
+        patterns = currentclass["patterns"]
+
+        for pattern in patterns:
+            usrinput = usrinput.replace(pattern, "")
+        
+        run_cprogram(f"./Scripts/sherlock {usrinput}")
 
 # Website functions
 
