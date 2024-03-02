@@ -71,9 +71,8 @@ class DiscordBot:
                 with open("./short_term_memory/output.txt", "r") as f:
                     ResponseOutput = f.read()
 
-                if message.author.name in self.authorised_users:
-                    with open("./short_term_memory/current_class.json", "r") as f:
-                        intent_class = json.load(f)
+                with open("./short_term_memory/current_class.json", "r") as f:
+                    intent_class = json.load(f)
                 
                 if intent_class.get("tag") == "sherlock":
                     results = ""
