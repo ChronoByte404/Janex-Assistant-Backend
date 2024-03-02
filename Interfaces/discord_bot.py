@@ -3,7 +3,7 @@ from nextcord import FFmpegPCMAudio
 from nextcord.ext import commands
 import asyncio
 import json
-from Utilities.functions import loadconfig, cprogram, DoFunction, mp3_tts
+from Utilities.functions import loadconfig, cprogram, DoFunction, mp3_tts, DeployFunction
 import glob
 
 class DiscordBot:
