@@ -15,6 +15,9 @@ class RequestHandler(BaseHTTPRequestHandler):
         message_text = post_data['message']
         sentence = str(message_text)
 
+        with open("short_term_memory/user_input.txt", "w") as file:
+            file.write(sentence)
+
         ResponseOutput = jarvis.say(sentence)
         intent_class = jarvis.get_class()
 
