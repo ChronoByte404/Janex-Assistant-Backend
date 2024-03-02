@@ -172,7 +172,7 @@ def DeployFunction(intent_class):
         with open("short_term_memory/user_input.txt", "r") as file:
             usrinput = file.read()
         currentclass = loadconfig("short_term_memory/current_class.json")
-        currentclass = currentclass.get("intent_class")
+#        currentclass = currentclass.get("intent_class")
         patterns = currentclass["patterns"]
 
         for pattern in patterns:
