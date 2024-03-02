@@ -4081,8 +4081,8 @@
     },
     {
       "tag": "sherlock",
-      "patterns": ["start background check ", "sherlock ", "search social media for ", "find this person "],
-      "responses": ["I have found these results. ", "Analysis concludes: "],
+      "patterns": ["start background check ", "sherlock ", "search social media for ", "find this person ", "investigate ", "look up "],
+      "responses": ["I have found these results. ", "Analysis concluded: ", "I have conducted the analysis. ", "Search completed. "],
       "context": "command"
     }
   ]
