@@ -4082,7 +4082,7 @@
     {
       "tag": "sherlock",
       "patterns": ["start background check ", "sherlock ", "search social media for ", "find this person ", "investigate ", "look up "],
-      "responses": ["I have found these results. ", "Analysis concluded: ", "I have conducted the analysis. ", "Search completed. "],
+      "responses": ["I am now running the social media scan.", "As you wish. Beginning analysis.", "I will now conduct the analysis.", "I will now conduct the search."],
       "context": "command"
     }
   ]
